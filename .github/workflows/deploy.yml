@@ -125,6 +125,7 @@ jobs:
           npx prisma migrate reset --force
 
       - name: ⚙️ Build
+        working-directory: newspaper
         run: npm run build
 
       - name: 🌳 Cypress run
@@ -132,6 +133,7 @@ jobs:
         with:
           start: npm run start:mocks
           wait-on: "http://localhost:8811"
+          working-directory: newspaper
         env:
           PORT: "8811"
 
