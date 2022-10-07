@@ -100,7 +100,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: 🏄 Copy test env vars
-        run: cp newspaer/.env.example newspaper/.env
+        run: cp newspaper/.env.example newspaper/.env
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
@@ -147,14 +147,11 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
-      - name: 🛠 Change directory
-        run: cd newspaper
-
       - name: 👀 Read app name
         uses: SebRollen/toml-action@v1.0.0
         id: app_name
         with:
-          file: "fly.toml"
+          file: "newspaper/fly.toml"
           field: "app"
 
       - name: 🐳 Set up Docker Buildx
