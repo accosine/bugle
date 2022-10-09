@@ -23,10 +23,16 @@ if (process.env.NODE_ENV === "production") {
 function getClient() {
   const { DATABASE_URL } = process.env;
   invariant(typeof DATABASE_URL === "string", "DATABASE_URL env var not set");
+  console.log("DATABASE_URL: ", DATABASE_URL);
 
   const databaseUrl = new URL(DATABASE_URL);
 
-  const isLocalHost = databaseUrl.hostname === "localhost";
+  console.log("databaseUrl : ", databaseUrl);
+
+  const isLocalHost =
+    databaseUrl.hostname === "localhost" || databaseUrl.hostname === "postgres";
+
+  console.log("databaseUrl.hostname : ", databaseUrl.hostname);
 
   const PRIMARY_REGION = isLocalHost ? null : process.env.PRIMARY_REGION;
   const FLY_REGION = isLocalHost ? null : process.env.FLY_REGION;

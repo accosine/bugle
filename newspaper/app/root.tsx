@@ -9,11 +9,17 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import { Version } from "letterpress";
+import versionStyles from "letterpress/dist/index.css";
+
 import { getUser } from "./session.server";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [
+    { rel: "stylesheet", href: tailwindStylesheetUrl },
+    { rel: "stylesheet", href: versionStyles },
+  ];
 };
 
 export const meta: MetaFunction = () => ({
@@ -40,7 +46,9 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        <span>Version 1</span>
+        <Version>
+          <span> #2</span>
+        </Version>
       </body>
     </html>
   );
