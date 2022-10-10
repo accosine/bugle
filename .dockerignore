@@ -1,8 +1,0 @@
-/newsletter/node_modules
-/newsletter/*.log
-.DS_Store
-/newsletter/.env
-/newsletter/.cache
-/newsletter/public/build
-/newsletter/build
-/packages/letterpress/.parcel-cache

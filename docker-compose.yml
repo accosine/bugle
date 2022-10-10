@@ -15,8 +15,7 @@ services:
   newspaper:
     # platform: linux/amd64
     build:
-      context: .
-      dockerfile: ./newspaper/Dockerfile
+      context: ./newspaper
     env_file:
       - ./newspaper/.env
     # restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"

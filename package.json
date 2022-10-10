@@ -1,0 +1,23 @@
+{
+  "name": "bugle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "copy": "npm run cp:letterpress",
+    "cp:letterpress" : "npx cpy-cli . ../../../newsroom/packages/letterpress --cwd=newspaper/packages/letterpress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkolba/bugle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dkolba/bugle/issues"
+  },
+  "homepage": "https://github.com/dkolba/bugle#readme",
+  "devDependencies": {
+    "cpy-cli": "^4.2.0"
+  }
+}

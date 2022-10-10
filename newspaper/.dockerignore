@@ -1,8 +1,13 @@
+node_modules
 /node_modules
-*.log
+newsletter/node_modules
+/newsletter/node_modules
+/*.log
 .DS_Store
-.env
+/.env
 /.cache
 /public/build
 /build
 /packages/letterpress/.parcel-cache
+**/.parcel-cache
+**/node_modules
