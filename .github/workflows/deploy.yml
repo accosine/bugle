@@ -124,7 +124,11 @@ jobs:
           cd newspaper
           npx prisma migrate reset --force
 
-      - name: ⚙️ Build
+      - name: ⚙️ Build letterpress
+        working-directory: newspaper
+        run: npm run build:letterpress
+
+      - name: ⚙️ Build remix
         working-directory: newspaper
         run: npm run build
 

@@ -39,7 +39,7 @@ COPY --from=deps /myapp/node_modules /myapp/node_modules
 
 RUN cd /myapp/node_modules/@parcel/watcher && npm run install
 WORKDIR /myapp/packages/letterpress
-RUN npm run parcel:build
+RUN npm run build
 RUN ls -lash /myapp/packages/letterpress/dist && sleep 5
 
 WORKDIR /myapp

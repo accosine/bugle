@@ -2,11 +2,9 @@
   "name": "letterpress",
   "version": "0.0.0",
   "description": "",
-  "types": "dist/types.d.ts",
   "scripts": {
-    "parcel:watch": "parcel watch",
-    "parcel:build": "parcel build",
-    "parcel:which": "which parcel && sleep 60"
+    "watch": "parcel watch",
+    "build": "parcel build"
   },
   "author": "",
   "license": "ISC",
@@ -25,7 +23,12 @@
     "react-dom": "18.2.0",
     "typescript": "^4.8.3"
   },
+  "source": "components/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/types.d.ts",
   "targets": {
+    "main": {},
+    "types": {},
     "cjs": {
       "source": "components/index.ts",
       "isLibrary": true,

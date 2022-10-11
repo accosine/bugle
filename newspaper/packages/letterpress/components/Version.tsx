@@ -10,7 +10,7 @@ const VersionDefaultProps: VersionPropsType = {
   children: createElement("div"),
 };
 
-const Version: FC<VersionPropsType> = ({ children }) => (
+export const Version: FC<VersionPropsType> = ({ children }) => (
   <>
     <div className="versionNumber">Version: {children}</div>
   </>

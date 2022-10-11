@@ -1,3 +1,3 @@
-import Version from "./Version";
+import * as EverythingVersion from "./Version";
 
-export { Version };
+export const { Version } = EverythingVersion;
