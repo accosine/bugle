@@ -58,6 +58,10 @@ jobs:
           useLockFile: false
           working-directory: newspaper
 
+      - name: ⚙️ Build letterpress
+        working-directory: newspaper
+        run: npm run build:letterpress
+
       - name: 🔎 Type check
         run: |
           cd newspaper
