@@ -1,0 +1,33 @@
+body {
+  background-color: var(--main-bg-color);
+  font-family: monospace;
+}
+
+#nameplate {
+  align-items: center;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+
+#copyright {
+  align-items: center;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+#page {
+  margin: 0px 5vw;
+  overflow-y: scroll;
+}
+
+@media (min-width: 1024px) {
+  #page {
+    margin: 0px 30vw;
+  }
+}

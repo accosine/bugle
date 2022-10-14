@@ -12,12 +12,12 @@ services:
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
 
-  newspaper:
+  newsroom:
     # platform: linux/amd64
     build:
-      context: ./newspaper
+      context: ./newsroom
     env_file:
-      - ./newspaper/.env
+      - ./newsroom/.env
     # restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
     # stop_grace_period: "3s"
     init: true

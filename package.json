@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "copy": "npm run cp:letterpress",
-    "cp:letterpress" : "npx cpy-cli . ../../../newsroom/packages/letterpress --cwd=newspaper/packages/letterpress"
+    "cp:letterpress": "npx cpy-cli . ../../../newsroom/packages/letterpress --cwd=newsroom/packages/letterpress"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,24 @@
+.app-container {
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: 1fr 18fr 1fr;
+  height: 100vh;
+}
+
+.app-area-top {
+  display: grid;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.app-area-main {
+  display: grid;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.app-area-bottom {
+  display: grid;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
