@@ -1,7 +1,5 @@
 # bugle
 
-    npx cpy-cli . ../../../newsroom/packages/letterpress --cwd=newsroom/packages/letterpress
-
 ## Remix Blues Stack
 
 ![The Remix Blues Stack](https://repository-images.githubusercontent.com/461012689/37d5bd8b-fa9c-4ab0-893c-f0a199d5012d)

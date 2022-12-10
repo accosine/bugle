@@ -4,6 +4,8 @@
 
 ## Development
 
+Until this [BUG](https://github.com/npm/cli/issues/2660) gets resolved, install with `npm ci`.
+
 From your terminal:
 
 ```sh

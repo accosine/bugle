@@ -16,14 +16,12 @@ import {
   useLoaderData,
   useNavigate,
 } from "@remix-run/react";
-import Layout from "~/components/Layout";
+import { Layout } from "letterpress";
+import layoutStyles from "letterpress/styles/Layout.css";
 import cssVars from "~/styles/inline";
 import config from "~/config.server";
 import reset from "~/styles/reset.css";
-import grid from "~/styles/grid.css";
 import shell from "~/styles/shell.css";
-import util from "~/styles/util.css";
-import hamburger from "~/styles/hamburger.css";
 import {
   ampStyleBoilerplateMain,
   ampStyleBoilerplateExtended,
@@ -33,10 +31,8 @@ import AmpBoilerplateStyle from "~/components/Amp/AmpBoilerplateStyle";
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: reset },
-    { rel: "stylesheet", href: grid },
-    { rel: "stylesheet", href: hamburger },
+    { rel: "stylesheet", href: layoutStyles },
     { rel: "stylesheet", href: shell },
-    { rel: "stylesheet", href: util },
   ];
 };
 
@@ -49,6 +45,7 @@ export const meta: MetaFunction = ({
 };
 
 export const loader = async () => {
+  console.log("confi: ", config);
   return json(config);
 };
 
@@ -113,8 +110,12 @@ const MenuLinks = (
 
 const ReactDocument = ({ location }: { location: string }) => {
   const prodEnv = process.env.NODE_ENV === "production";
+  // const { backgroundColor, copyright, nameplate, menu, slogan, menuName } =
+  //   useLoaderData<ConfigType>();
+  const ldata = useLoaderData<ConfigType>();
+  console.log("ldata: ", ldata);
   const { backgroundColor, copyright, nameplate, menu, slogan, menuName } =
-    useLoaderData<ConfigType>();
+    ldata;
   const navigate = useNavigate();
 
   return (
@@ -138,7 +139,7 @@ const ReactDocument = ({ location }: { location: string }) => {
           <Outlet />
         </Layout>
         <ScrollRestoration />
-        {!prodEnv && <Scripts />}
+        <Scripts />
         {!prodEnv && <LiveReload />}
       </body>
     </html>

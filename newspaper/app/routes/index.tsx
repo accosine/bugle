@@ -1,6 +1,6 @@
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import type { ConfigType } from "~/config.server";
-import type { AmpStoryData } from "@prisma/client";
+import type { AmpStoryData } from "prismatic";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { useEffect } from "react";

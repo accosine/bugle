@@ -8,7 +8,7 @@ import type {
   AmpStoryPageData,
   AmpStoryGridLayerData,
   AmpMediaData,
-} from "@prisma/client";
+} from "prismatic";
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { db } from "~/db.server";

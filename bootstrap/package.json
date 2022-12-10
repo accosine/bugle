@@ -1,0 +1,17 @@
+{
+  "name": "tabloid-assets-bootstrap",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "node bootstrap.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1216.0",
+    "dotenv": "^16.0.2",
+    "mime-types": "^2.1.35"
+  }
+}

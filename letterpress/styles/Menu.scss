@@ -1,0 +1,11 @@
+@use "./Footer.scss";
+@use "./Header.scss";
+@use "./Modal.scss";
+@use "./util.scss";
+
+#letterpress-menu-main {
+  display: grid;
+  align-content: center;
+  align-items: start;
+  font-size: 1.5rem;
+}

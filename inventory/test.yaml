@@ -1,0 +1,10 @@
+slug: test-123
+poster: duck.jpg
+posterPortrait: duck.jpg
+supportsLandscape: false
+title: My Test Title
+media:
+  - alpaca.jpg
+  - bottles.mp4
+  - clock.mp4
+  - dice.mp4

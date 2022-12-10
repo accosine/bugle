@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "copy": "npm run cp:letterpress",
-    "cp:letterpress": "npx cpy-cli . ../../../newsroom/packages/letterpress --cwd=newsroom/packages/letterpress"
+    "copy": "npm run cp:letterpress2newspaper && npm run cp:prismatic2newspaper && npm run cp:prismatic2newsroom",
+    "cp:letterpress2newspaper": "npx cpy-cli . '!./node_modules/**' '../newspaper/packages/letterpress' --cwd=letterpress",
+    "cp:prismatic2newspaper": "npx cpy-cli . '!./node_modules/**' ../newspaper/packages/prismatic --cwd=prismatic",
+    "cp:prismatic2newsroom": "npx cpy-cli . '!./node_modules/**' ../newsroom/packages/prismatic --cwd=prismatic"
   },
   "repository": {
     "type": "git",

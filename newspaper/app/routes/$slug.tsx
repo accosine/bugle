@@ -2,7 +2,7 @@ import type { FC } from "react";
 import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
 import type { ConfigType } from "~/config.server";
-import type { PageData } from "@prisma/client";
+import type { PageData } from "prismatic";
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { marked } from "marked";

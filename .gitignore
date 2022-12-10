@@ -13,3 +13,8 @@ node_modules
 */app/styles/tailwind.css
 .parcel-cache
 dist
+
+node_modules
+.cache
+newspaper/packages/*
+newsroom/packages/*

@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "prismatic";
 import invariant from "tiny-invariant";
 
 let prisma: PrismaClient;

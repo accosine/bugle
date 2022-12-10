@@ -1,5 +1,6 @@
 import type { AmpConfig, AmpMediaType } from "./types";
 import { fallbackConfig } from "./AmpStory";
+
 export type AmpMediaPropsType = {
   component: AmpMediaType;
   config: AmpConfig;
