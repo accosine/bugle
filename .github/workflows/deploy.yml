@@ -180,8 +180,7 @@ jobs:
 
       - name: 🔎 Type check
         run: npm run typecheck --if-present
-        with:
-          working-directory: newsroom
+        working-directory: newsroom
 
   vitest:
     name: ⚡ Vitest
