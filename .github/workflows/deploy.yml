@@ -25,14 +25,15 @@ jobs:
       #   uses: actions/setup-node@v3
       #   with:
       #     node-version: 16
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
+        with:
+          working-directory: letterpress
+        # with:
+        #   useLockFile: true
 
-      # - name: 📥 Download deps
-      #   uses: bahmutov/npm-install@v1
-      #   with:
-      #     useLockFile: true
-
-      - name: list letterpress
-        run: npm ci
+      # - name: list letterpress
+      #   run: npm ci
 
       - name: list letterpress
         run: ls -lash
