@@ -41,7 +41,7 @@ jobs:
         run: npm run build
 
       - name: list letterpress
-        run: ls -lash
+        run: ls -lash ./dist
 
       - name: Upload test results
         if: always()
