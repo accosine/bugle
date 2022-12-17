@@ -11,40 +11,34 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: ACT TRY Build
+  build-letterpress:
+    name: Build letterpress package
     runs-on: ubuntu-20.04
-    # container:
-    # image: mcr.microsoft.com/playwright:v1.28.1-focal
+    env:
+      working-directory: letterpress
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
-      # - name: ⎔ Setup node
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: true
-          working-directory: letterpress
 
-      # - name: Build letterpress
-      #   working-directory: ./letterpress
-      #   run: |
-      #     npm run build
+      - name: Build letterpress
+        run: npm run build
 
       - name: list letterpress
-        working-directory: ./letterpress
-        run: |
-          ls -lash
+        run: ls -lash
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v2
-        working-directory: ./letterpress
         with:
           name: dist
           path: dist
@@ -65,13 +59,13 @@ jobs:
       #     name: playwright-report
       #     path: playwright-report
 
-  e2e:
+  playwright:
     name: ACT TRY E2E
     needs: lint
 
     runs-on: ubuntu-20.04
-    # container:
-    #   image: mcr.microsoft.com/playwright:v1.28.1-focal
+    container:
+      image: mcr.microsoft.com/playwright:v1.28.1-focal
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
@@ -81,20 +75,21 @@ jobs:
       #   with:
       #     node-version: 16
 
-      - uses: actions/download-artifact@v3
-        working-directory: ./letterpress
-        with:
-          name: dist
-
-      - name: Display structure of downloaded files
-        working-directory: ./letterpress
-        run: ls -R
-
-      # - name: 📥 Download deps
-      #   uses: bahmutov/npm-install@v1
+      # - uses: actions/download-artifact@v3
+      #   working-directory: ./letterpress
       #   with:
-      #     useLockFile: true
-      #     working-directory: letterpress
+      #     name: dist
+
+      # - name: Display structure of downloaded files
+      #   working-directory: ./letterpress
+      #   run: ls -R
+
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: true
+          working-directory: letterpress
+          install-command: npm i --ignore-scripts
 
       # - name: list letterpress
       #   working-directory: ./letterpress
