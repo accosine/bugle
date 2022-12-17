@@ -57,9 +57,12 @@ jobs:
       #     name: playwright-report
       #     path: playwright-report
 
-  playwright:
-    name: Playwright
+  playwright-letterpress:
+    name: Test letterpress with Playwright
     needs: build-letterpress
+    defaults:
+      run:
+        working-directory: letterpress
     runs-on: ubuntu-20.04
     container:
       image: mcr.microsoft.com/playwright:v1.28.1-focal
@@ -67,19 +70,23 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
-      # - name: ⎔ Setup node
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-      # - uses: actions/download-artifact@v3
-      #   working-directory: ./letterpress
-      #   with:
-      #     name: dist
+      - uses: actions/download-artifact@v3
+        working-directory: ./letterpress
+        with:
+          name: dist
 
-      # - name: Display structure of downloaded files
-      #   working-directory: ./letterpress
-      #   run: ls -R
+      - name: Display structure of downloaded files
+        working-directory: ./letterpress
+        run: ls -R
+
+      - name: Display structure of downloaded files dist
+        working-directory: ./letterpress
+        run: ls -R ./dist
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
