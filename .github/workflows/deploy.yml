@@ -21,30 +21,20 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
-      # - name: ⎔ Setup node
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
         with:
           working-directory: letterpress
-        # with:
-        #   useLockFile: true
 
-      # - name: list letterpress
-      #   run: npm ci
-
-      - name: list letterpress
-        run: ls -lash
-
-      - name: Build letterpress
+      - name: 🏗 Build letterpress
         run: npm run build
 
-      - name: list letterpress
-        run: ls -lash ./dist
-
-      - name: Upload test results
+      - name: ♻️ Upload letterpress dist folder
         if: always()
         uses: actions/upload-artifact@v2
         with:
