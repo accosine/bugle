@@ -152,7 +152,7 @@ jobs:
       - name: 🔬 Lint
         run: npm run lint
 
-  typecheck:
+  newsroom-typecheck:
     name: ☑️ʦ TypeScript
     runs-on: ubuntu-latest
     steps:
@@ -182,7 +182,7 @@ jobs:
         run: npm run typecheck --if-present
         working-directory: newsroom
 
-  vitest:
+  newsroom-vitest:
     name: ⚡ Vitest
     runs-on: ubuntu-latest
     defaults:
