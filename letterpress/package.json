@@ -7,7 +7,8 @@
     "build": "parcel build",
     "cleanup": "npm pkg delete devDependencies",
     "test-ct": "playwright test -c playwright-ct.config.ts",
-    "test-ct:debug": "npm run test-ct -- --debug"
+    "test-ct:debug": "npm run test-ct -- --debug",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint ./components/**/*"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,10 @@
     "@playwright/experimental-ct-react": "^1.28.1",
     "@types/react": "17.0.52",
     "@types/react-dom": "17.0.18",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
     "parcel": "2.8.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",

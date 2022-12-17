@@ -4,15 +4,9 @@ interface props {
   children?: React.ReactNode;
   isOpen: boolean;
   ariaLabel?: string;
-  className?: string;
 }
 
-export const Modal: React.FC<props> = ({
-  children,
-  isOpen,
-  ariaLabel,
-  className,
-}) => {
+export const Modal: React.FC<props> = ({ children, isOpen, ariaLabel }) => {
   if (!isOpen) return null;
 
   return (

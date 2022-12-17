@@ -117,6 +117,32 @@ jobs:
           name: playwright-report
           path: ./letterpress/playwright-report
 
+  lint-letterpress:
+    name: ⬣ ESLint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: letterpress
+    steps:
+      - name: 🛑 Cancel Previous Runs ✉️
+        uses: styfle/cancel-workflow-action@0.10.1
+
+      - name: ⬇️ Checkout repo ✉️
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup node ✉️
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: 📥 Download deps ✉️
+        uses: bahmutov/npm-install@v1
+        with:
+          working-directory: letterpress
+
+      - name: 🔬 Lint ✉️
+        run: npm run lint
+
   # lint:
   #   name: ⬣ ESLint
   #   runs-on: ubuntu-latest
