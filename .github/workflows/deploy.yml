@@ -155,9 +155,6 @@ jobs:
   typecheck:
     name: ☑️ʦ TypeScript
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: newsroom
     steps:
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.10.1
@@ -172,7 +169,6 @@ jobs:
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
-        working-directory: .
 
       - name: 📸 Copy 📦 packages
         run: npm run copy
@@ -184,6 +180,8 @@ jobs:
 
       - name: 🔎 Type check
         run: npm run typecheck --if-present
+        with:
+          working-directory: newsroom
 
   vitest:
     name: ⚡ Vitest
