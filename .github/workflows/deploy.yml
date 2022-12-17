@@ -12,13 +12,13 @@ permissions:
 
 jobs:
   letterpress-build:
-    name: 🏗 Build ✉️-🗜
+    name: 🏗 Build ✉️🗜
     runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: letterpress
     steps:
-      - name: 🛑 Cancel Previous Runs ✉️
+      - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.10.1
 
       - name: ⬇️ Checkout repo
@@ -34,10 +34,10 @@ jobs:
         with:
           working-directory: letterpress
 
-      - name: 🏗 Build ✉️
+      - name: 🏗 Build ✉️🗜
         run: npm run build
 
-      - name: ♻️ Upload ✉️-🗜dist folder
+      - name: ♻️ Upload ✉️🗜dist folder
         if: always()
         uses: actions/upload-artifact@v2
         with:
@@ -45,7 +45,7 @@ jobs:
           path: ./letterpress/dist
 
   letterpress-playwright:
-    name: 🧪 Test ✉️-🗜 with 🎭
+    name: 🧪 Test ✉️🗜 with 🎭
     needs: letterpress-build
     defaults:
       run:
@@ -57,7 +57,7 @@ jobs:
       # options: --user root
 
     steps:
-      - name: 🛑 Cancel Previous Runs ✉️
+      - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.10.1
 
       - name: ⬇️ Checkout repo
@@ -84,7 +84,7 @@ jobs:
         working-directory: ./letterpress
         run: npm i -D esbuild-linux-64
 
-      - name: Install Playwright
+      - name: 🎭 Install Playwright
         working-directory: ./letterpress
         run: npx playwright install --with-deps
 
@@ -157,7 +157,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: newroom
+        working-directory: newsroom
     steps:
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.10.1
@@ -184,7 +184,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: newroom
+        working-directory: newsroom
     steps:
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.10.1
