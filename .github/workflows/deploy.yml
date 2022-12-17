@@ -60,9 +60,8 @@ jobs:
       #     path: playwright-report
 
   playwright:
-    name: ACT TRY E2E
-    needs: lint
-
+    name: Playwright
+    needs: build-letterpress
     runs-on: ubuntu-20.04
     container:
       image: mcr.microsoft.com/playwright:v1.28.1-focal
