@@ -95,34 +95,21 @@ jobs:
           working-directory: letterpress
           install-command: npm i --ignore-scripts
 
-      # - name: list letterpress
-      #   working-directory: ./letterpress
-      #   run: |
-      #     ls -lash
+      - name: Install Playwright
+        working-directory: ./letterpress
+        run: npx playwright install --with-deps
 
-      # - name: Upload test results
-      #   if: always()
-      #   uses: actions/upload-artifact@v2
-      #   working-directory: ./letterpress
-      #   with:
-      #     name: dist
-      #     path: dist
+      - name: Run your tests
+        working-directory: ./letterpress
+        run: npx playwright test
 
-      # - name: Install Playwright
-      #   working-directory: ./letterpress
-      #   run: npx playwright install --with-deps
-
-      # - name: Run your tests
-      #   working-directory: ./letterpress
-      #   run: npx playwright test
-
-      # - name: Upload test results
-      #   if: always()
-      #   uses: actions/upload-artifact@v2
-      #   working-directory: ./letterpress
-      #   with:
-      #     name: playwright-report
-      #     path: playwright-report
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v2
+        working-directory: ./letterpress
+        with:
+          name: playwright-report
+          path: playwright-report
 
   # lint:
   #   name: ⬣ ESLint
