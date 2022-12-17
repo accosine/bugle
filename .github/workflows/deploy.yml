@@ -76,9 +76,9 @@ jobs:
           node-version: 16
 
       - uses: actions/download-artifact@v3
-        working-directory: ./letterpress
         with:
           name: dist
+          path: ./letterpress/dist
 
       - name: Display structure of downloaded files
         working-directory: ./letterpress
