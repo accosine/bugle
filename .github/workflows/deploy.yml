@@ -66,6 +66,9 @@ jobs:
     runs-on: ubuntu-20.04
     container:
       image: mcr.microsoft.com/playwright:v1.28.1-focal
+      # options: --user 1001
+      options: --user root
+
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
