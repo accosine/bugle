@@ -101,7 +101,7 @@ jobs:
 
       - name: Install Playwright
         working-directory: ./letterpress
-        run: npx playwright install --with-deps
+        run: HOME=/root npx playwright install --with-deps
 
       - name: Run your tests
         working-directory: ./letterpress
