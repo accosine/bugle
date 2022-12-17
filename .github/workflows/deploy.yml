@@ -14,8 +14,9 @@ jobs:
   build-letterpress:
     name: Build letterpress package
     runs-on: ubuntu-20.04
-    env:
-      working-directory: letterpress
+    defaults:
+      run:
+        working-directory: letterpress
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
