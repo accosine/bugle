@@ -100,29 +100,29 @@ jobs:
           path: ./letterpress/playwright-report
 
   letterpress-lint:
-    name: 🔬 Lint ✉️-🗜
+    name: 🔬 Lint ✉️🗜
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: letterpress
     steps:
-      - name: 🛑 Cancel Previous Runs ✉️
+      - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.10.1
 
-      - name: ⬇️ Checkout repo ✉️
+      - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
-      - name: ⎔ Setup node ✉️
+      - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 16
 
-      - name: 📥 Download deps ✉️
+      - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
         with:
           working-directory: letterpress
 
-      - name: 🔬 Lint ✉️
+      - name: 🔬 Lint
         run: npm run lint
 
   newsroom-lint:
@@ -130,7 +130,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: letterpress
+        working-directory: newsroom
     steps:
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.10.1
