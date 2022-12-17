@@ -126,7 +126,7 @@ jobs:
         run: npm run lint
 
   newsroom-lint:
-    name: ⬣ ESLint 📰🧑‍💻
+    name: 🔬 Lint 📰👩‍💻🧑‍💻👨‍💻
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -153,7 +153,7 @@ jobs:
         run: npm run lint
 
   typecheck:
-    name: ʦ TypeScript
+    name: ☑️ʦ TypeScript
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -172,8 +172,14 @@ jobs:
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
+        working-directory: ./
+
+      - name: 📸 Copy 📦 packages
+        run: npm run copy
+
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
         with:
-          useLockFile: false
           working-directory: newsroom
 
       - name: 🔎 Type check
