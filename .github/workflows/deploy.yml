@@ -40,6 +40,9 @@ jobs:
       - name: Build letterpress
         run: npm run build
 
+      - name: list letterpress
+        run: ls -lash
+
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v2
