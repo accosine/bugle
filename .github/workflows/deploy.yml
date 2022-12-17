@@ -11,8 +11,8 @@ permissions:
   contents: read
 
 jobs:
-  build-letterpress:
-    name: 🏗 Build ✉️-press
+  letterpress-build:
+    name: 🏗 Build ✉️-🗜
     runs-on: ubuntu-20.04
     defaults:
       run:
@@ -37,16 +37,16 @@ jobs:
       - name: 🏗 Build ✉️
         run: npm run build
 
-      - name: ♻️ Upload ✉️-press dist folder
+      - name: ♻️ Upload ✉️-🗜dist folder
         if: always()
         uses: actions/upload-artifact@v2
         with:
           name: dist
           path: ./letterpress/dist
 
-  playwright-letterpress:
-    name: 🧪 Test ✉️-press with 🎭
-    needs: build-letterpress
+  letterpress-playwright:
+    name: 🧪 Test ✉️-🗜 with 🎭
+    needs: letterpress-build
     defaults:
       run:
         working-directory: letterpress
@@ -99,8 +99,8 @@ jobs:
           name: playwright-report
           path: ./letterpress/playwright-report
 
-  lint-letterpress:
-    name: 🔬 Lint ✉️-press
+  letterpress-lint:
+    name: 🔬 Lint ✉️-🗜
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -125,31 +125,32 @@ jobs:
       - name: 🔬 Lint ✉️
         run: npm run lint
 
-  # lint:
-  #   name: ⬣ ESLint
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: 🛑 Cancel Previous Runs
-  #       uses: styfle/cancel-workflow-action@0.10.1
+  newsroom-lint:
+    name: ⬣ ESLint 📰🧑‍💻
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: letterpress
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.10.1
 
-  #     - name: ⬇️ Checkout repo
-  #       uses: actions/checkout@v3
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
-  #     - name: ⎔ Setup node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-  #     - name: 📥 Download deps
-  #       uses: bahmutov/npm-install@v1
-  #       with:
-  #         useLockFile: false
-  #         working-directory: newsroom
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
+          working-directory: newsroom
 
-  #     - name: 🔬 Lint
-  #       run: |
-  #         cd newsroom
-  #         npm run lint
+      - name: 🔬 Lint
+        run: npm run lint
 
   # typecheck:
   #   name: ʦ TypeScript
