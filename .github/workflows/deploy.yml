@@ -172,7 +172,7 @@ jobs:
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
-        working-directory: ./
+        working-directory: .
 
       - name: 📸 Copy 📦 packages
         run: npm run copy
