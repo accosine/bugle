@@ -66,7 +66,7 @@ jobs:
     runs-on: ubuntu-20.04
     container:
       image: mcr.microsoft.com/playwright:v1.28.1-focal
-      options: --user 1001
+      # options: --user 1001
       # options: --user root
 
     steps:
@@ -104,11 +104,11 @@ jobs:
 
       - name: Install Playwright
         working-directory: ./letterpress
-        run: HOME=/root npx playwright install --with-deps
+        run: npx playwright install --with-deps
 
       - name: Run your tests
         working-directory: ./letterpress
-        run: npx playwright test
+        run: HOME=/root npx playwright test
 
       - name: Upload test results
         if: always()
