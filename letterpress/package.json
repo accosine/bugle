@@ -20,7 +20,7 @@
     "@parcel/packager-ts": "2.8.2",
     "@parcel/transformer-sass": "2.8.2",
     "@parcel/transformer-typescript-types": "2.8.2",
-    "@playwright/experimental-ct-react": "^1.28.1",
+    "@playwright/experimental-ct-react": "^1.29.0",
     "@types/react": "17.0.52",
     "@types/react-dom": "17.0.18",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
