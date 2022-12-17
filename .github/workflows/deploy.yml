@@ -95,6 +95,10 @@ jobs:
           working-directory: letterpress
           install-command: npm i --ignore-scripts
 
+      - name: esbuild
+        working-directory: ./letterpress
+        run: npm i -D esbuild-linux-64
+
       - name: Install Playwright
         working-directory: ./letterpress
         run: npx playwright install --with-deps
