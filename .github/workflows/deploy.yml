@@ -12,12 +12,15 @@ permissions:
 
 jobs:
   build-letterpress:
-    name: Build letterpress package
+    name: 🏗 Build ✉️-press
     runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: letterpress
     steps:
+      - name: 🛑 Cancel Previous Runs ✉️
+        uses: styfle/cancel-workflow-action@0.10.1
+
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
@@ -31,34 +34,18 @@ jobs:
         with:
           working-directory: letterpress
 
-      - name: 🏗 Build letterpress
+      - name: 🏗 Build ✉️
         run: npm run build
 
-      - name: ♻️ Upload letterpress dist folder
+      - name: ♻️ Upload ✉️-press dist folder
         if: always()
         uses: actions/upload-artifact@v2
         with:
           name: dist
           path: ./letterpress/dist
 
-      # - name: Install Playwright
-      #   working-directory: ./letterpress
-      #   run: npx playwright install --with-deps
-
-      # - name: Run your tests
-      #   working-directory: ./letterpress
-      #   run: npx playwright test
-
-      # - name: Upload test results
-      #   if: always()
-      #   uses: actions/upload-artifact@v2
-      #   working-directory: ./letterpress
-      #   with:
-      #     name: playwright-report
-      #     path: playwright-report
-
   playwright-letterpress:
-    name: Test letterpress with Playwright
+    name: 🧪 Test ✉️-press with 🎭
     needs: build-letterpress
     defaults:
       run:
@@ -70,26 +57,21 @@ jobs:
       # options: --user root
 
     steps:
+      - name: 🛑 Cancel Previous Runs ✉️
+        uses: styfle/cancel-workflow-action@0.10.1
+
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
-      # - name: ⎔ Setup node
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - uses: actions/download-artifact@v3
         with:
           name: dist
           path: ./letterpress/dist
-
-      - name: Display structure of downloaded files
-        working-directory: ./letterpress
-        run: ls -R
-
-      - name: Display structure of downloaded files dist
-        working-directory: ./letterpress
-        run: ls -R ./dist
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
@@ -118,7 +100,7 @@ jobs:
           path: ./letterpress/playwright-report
 
   lint-letterpress:
-    name: ⬣ ESLint
+    name: 🔬 Lint ✉️-press
     runs-on: ubuntu-latest
     defaults:
       run:
