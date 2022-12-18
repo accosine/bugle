@@ -9,7 +9,7 @@
     "prisma:generate": "prisma generate",
     "prisma:introspect": "prisma introspect",
     "prisma:migrate": "prisma migrate dev --name init",
-    "prisma:reset": "prisma migrate reset",
+    "prisma:reset": "prisma migrate reset --force",
     "prisma:seed": "prisma db seed",
     "prisma:setup": "npx prisma generate && npx prisma migrate deploy",
     "prisma:studio": "prisma studio",

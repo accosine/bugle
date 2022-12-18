@@ -212,57 +212,62 @@ jobs:
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
 
-  # cypress:
-  #   name: ⚫️ Cypress
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: 🛑 Cancel Previous Runs
-  #       uses: styfle/cancel-workflow-action@0.11.0
+  cypress:
+    name: ⚫️ Cypress
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
 
-  #     - name: ⬇️ Checkout repo
-  #       uses: actions/checkout@v3
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
-  #     - name: 🏄 Copy test env vars
-  #       run: cp newsroom/.env.example newsroom/.env
+      - name: 🏄 Copy test env vars
+        run: cp newsroom/.env.example newsroom/.env
 
-  #     - name: ⎔ Setup node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-  #     - name: 📥 Download deps
-  #       uses: bahmutov/npm-install@v1
-  #       with:
-  #         useLockFile: false
-  #         working-directory: newsroom
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
 
-  #     - name: 🐳 Docker compose
-  #       # the sleep is just there to give time for postgres to get started
-  #       run: docker-compose up -d && sleep 3
-  #       env:
-  #         DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
+      - name: 📸 Copy 📦 packages
+        run: npm run copy
 
-  #     - name: 🛠 Setup Database
-  #       run: |
-  #         cd newsroom
-  #         npx prisma migrate reset --force
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
+        with:
+          working-directory: newsroom
 
-  #     - name: ⚙️ Build letterpress
-  #       working-directory: newsroom
-  #       run: npm run build:letterpress
+      - name: 🐳 Docker compose
+        # the sleep is just there to give time for postgres to get started
+        run: docker-compose up postgres -d && sleep 3
+        # env:
+        #   DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
 
-  #     - name: ⚙️ Build remix
-  #       working-directory: newsroom
-  #       run: npm run build
+      # - name: 🛠 Setup Database
+      #   run: |
+      #     cd newsroom
+      #     npx prisma migrate reset --force
 
-  #     - name: 🌳 Cypress run
-  #       uses: cypress-io/github-action@v4
-  #       with:
-  #         start: npm run start:mocks
-  #         wait-on: "http://localhost:8811"
-  #         working-directory: newsroom
-  #       env:
-  #         PORT: "8811"
+      - name: ⚙️ Build letterpress
+        working-directory: newsroom
+        run: npm run build:letterpress
+
+      - name: ⚙️ Build remix
+        working-directory: newsroom
+        run: npm run build
+
+      - name: 🌳 Cypress run
+        uses: cypress-io/github-action@v4
+        with:
+          start: npm run start:mocks
+          wait-on: "http://localhost:8811"
+          working-directory: newsroom
+        env:
+          PORT: "8811"
 
   # build:
   #   name: 🐳 Build
