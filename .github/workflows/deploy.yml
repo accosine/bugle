@@ -67,7 +67,7 @@ jobs:
           node-version: 16
 
       - name: 🛬 Download dist artifact
-      - uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: dist
           path: ./letterpress/dist
