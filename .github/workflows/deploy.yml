@@ -262,7 +262,7 @@ jobs:
       - name: 🌳 Cypress run
         uses: cypress-io/github-action@v4
         with:
-          start: ls ./node_modules/prismatic/dist/ && npm run start:mocks
+          start: ls -lash ./node_modules/prismatic/dist/
           wait-on: "http://localhost:8811"
           working-directory: newsroom
         env:
