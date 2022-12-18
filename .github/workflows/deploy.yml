@@ -248,6 +248,8 @@ jobs:
 
       - name: cleanup:letterpress
         run: npm run cleanup:letterpress
+        with:
+          working-directory: newsroom
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
