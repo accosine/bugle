@@ -53,6 +53,10 @@ jobs:
     runs-on: ubuntu-20.04
     container:
       image: mcr.microsoft.com/playwright:v1.29.0-focal
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium, firefox, webkit]
 
     steps:
       - name: 🛑 Cancel Previous Runs
@@ -89,7 +93,7 @@ jobs:
 
       - name: 👩‍🔬 Test with Playwright 🎭
         working-directory: ./letterpress
-        run: HOME=/root npx playwright test
+        run: HOME=/root npx playwright test --project=${{ matrix.project }}
 
       - name: 🆙 Upload test results
         if: always()
