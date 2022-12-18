@@ -265,6 +265,7 @@ jobs:
           start: npm run blubb
           wait-on: "http://localhost:8811"
           working-directory: newsroom
+          install: false
         env:
           PORT: "8811"
 
