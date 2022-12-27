@@ -1,0 +1,126 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id    String @id @default(cuid())
+  email String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  password Password?
+  notes    Note[]
+}
+
+model Password {
+  hash String
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique
+}
+
+model Note {
+  id    String @id @default(cuid())
+  title String
+  body  String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String
+}
+
+model AmpStoryData {
+  id                 Int                @id @default(autoincrement())
+  dateCreated        DateTime           @default(now())
+  dateUpdated        DateTime           @updatedAt
+  description        String?
+  slugOriginal       String
+  slugBase64         String             @unique
+  backgroundAudio    String?
+  dataPollInterval   Int?
+  entity             String?
+  entityLogoSrc      String?
+  entityUrl          String?
+  liveStory          Boolean            @default(false)
+  liveStoryDisabled  Boolean            @default(false)
+  poster             String
+  posterLandscapeSrc String?
+  posterPortraitSrc  String
+  posterSquareSrc    String?
+  supportsLandscape  Boolean            @default(false)
+  title              String
+  pages              AmpStoryPageData[]
+}
+
+model AmpStoryPageData {
+  id               Int                     @id @default(autoincrement())
+  dateCreated      DateTime                @default(now())
+  dateUpdated      DateTime                @updatedAt
+  autoAdvanceAfter String?
+  backgroundAudio  String?
+  layers           AmpStoryGridLayerData[]
+  stories          AmpStoryData[]
+}
+
+enum Template {
+  fill
+  vertical
+  horizontal
+  thirds
+}
+
+enum GridArea {
+  middleThird
+  lowerThird
+  upperThird
+}
+
+model AmpStoryGridLayerData {
+  id           Int                @id @default(autoincrement())
+  dateCreated  DateTime           @default(now())
+  dateUpdated  DateTime           @updatedAt
+  // ampMediaId   Int
+  gridArea     GridArea?
+  template     Template           @default(fill)
+  component    AmpMediaData[]
+  // component    AmpMediaData       @relation(fields: [ampMediaId], references: [id])
+  ampStoryPage AmpStoryPageData[]
+}
+
+model AmpMediaData {
+  id                Int                     @id @default(autoincrement())
+  dateCreated       DateTime                @default(now())
+  dateUpdated       DateTime                @updatedAt
+  alt               String?
+  attribution       String?
+  autoplay          Boolean?                @default(true)
+  height            Int
+  layout            String
+  loop              Boolean?                @default(false)
+  noaudio           Boolean?                @default(false)
+  poster            String
+  src               String
+  type              String
+  volume            Int?
+  width             Int
+  ampStoryGridLayer AmpStoryGridLayerData[]
+}
+
+model PageData {
+  id           Int      @id @default(autoincrement())
+  dateCreated  DateTime @default(now())
+  dateUpdated  DateTime @updatedAt
+  description  String?
+  slugOriginal String
+  slugBase64   String   @unique
+  title        String
+  content      String
+}

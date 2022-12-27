@@ -1,0 +1,34 @@
+version: "3.7"
+services:
+  newsroom:
+    # platform: linux/amd64
+    build:
+      context: ./
+      dockerfile: ./packages/newsroom/Dockerfile
+    env_file:
+      - ./packages/newsroom/.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
+    # restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+    # stop_grace_period: "3s"
+    init: true
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - 3001:3000
+
+  newspaper:
+    build:
+      context: ./
+      dockerfile: ./packages/newspaper/Dockerfile
+    env_file:
+      - ./packages/newspaper/.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
+    init: true
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - 3000:3000

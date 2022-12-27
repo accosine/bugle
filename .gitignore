@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.history
+.parcel-cache
+**/app/styles/tailwind.css
+build
+cypress/screenshots
+cypress/videos
+dist
+inventory
+node_modules
+playwright-report/
+**/playwright/.cache/
+postgres-data
+public/build
+test-results/

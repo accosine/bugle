@@ -1,0 +1,15 @@
+body {
+  background-color: var(--main-bg-color);
+  font-family: monospace;
+}
+
+#page {
+  margin: 0px 5vw;
+  overflow-y: scroll;
+}
+
+@media (min-width: 1024px) {
+  #page {
+    margin: 0px 30vw;
+  }
+}

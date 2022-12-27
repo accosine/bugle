@@ -1,0 +1,34 @@
+{
+  "name": "pinkepunker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:newsroom": "npm start --workspace=newsroom",
+    "start:newspaper": "npm start --workspace=newspaper",
+    "REWORK:setup": "prisma generate && prisma migrate deploy && prisma db seed",
+    "build:letterpress": "npm run build --workspace=letterpress",
+    "build:prismatic": "npm run prisma:generate --workspace=prismatic",
+    "build:newsroom": "npm run build --workspace=newsroom",
+    "build:newspaper": "npm run build --workspace=newspaper",
+    "docker": "docker-compose up -d",
+    "postinstall": "npm run build:prismatic && npm run build:letterpress",
+    "prismatic:reset": "dotenv -- npm run prisma:reset --workspace=prismatic",
+    "prismatic:seed": "dotenv -- npm run prisma:seed --workspace=prismatic",
+    "prismatic:studio": "dotenv -- npm run prisma:studio --workspace=prismatic",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "inventorize": "npm run build --workspace=bootstrap"
+  },
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "./packages/*"
+    ]
+  },
+  "devDependencies": {
+    "dotenv-cli": "^6.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
