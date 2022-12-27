@@ -1,23 +1,26 @@
 {
-  "name": "pinkepunker",
+  "name": "bugle",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:newsroom": "npm start --workspace=newsroom",
-    "start:newspaper": "npm start --workspace=newspaper",
-    "REWORK:setup": "prisma generate && prisma migrate deploy && prisma db seed",
     "build:letterpress": "npm run build --workspace=letterpress",
-    "build:prismatic": "npm run prisma:generate --workspace=prismatic",
-    "build:newsroom": "npm run build --workspace=newsroom",
     "build:newspaper": "npm run build --workspace=newspaper",
-    "docker": "docker-compose up -d",
+    "build:newsroom": "npm run build --workspace=newsroom",
+    "build:prismatic": "npm run prisma:generate --workspace=prismatic",
+    "inventorize": "npm start --workspace=bootstrap",
     "postinstall": "npm run build:prismatic && npm run build:letterpress",
     "prismatic:reset": "dotenv -- npm run prisma:reset --workspace=prismatic",
     "prismatic:seed": "dotenv -- npm run prisma:seed --workspace=prismatic",
     "prismatic:studio": "dotenv -- npm run prisma:studio --workspace=prismatic",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "inventorize": "npm run build --workspace=bootstrap"
+    "setup:env": "npm run setup:env:bootstrap && npm run setup:env:newspaper && npm run setup:env:newsroom && npm run setup:env:prismatic",
+    "setup:env:bootstrap": "npx cpy-cli .env.example './' --cwd=packages/bootstrap --rename=.env",
+    "setup:env:newspaper": "npx cpy-cli .env.example './' --cwd=packages/newspaper --rename=.env",
+    "setup:env:newsroom": "npx cpy-cli .env.example './' --cwd=packages/newsroom --rename=.env",
+    "setup:env:prismatic": "npx cpy-cli .env.example './' --cwd=packages/prismatic --rename=.env",
+    "start:newspaper": "npm start --workspace=newspaper",
+    "start:newsroom": "npm start --workspace=newsroom",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
   "workspaces": {
@@ -26,6 +29,7 @@
     ]
   },
   "devDependencies": {
+    "cpy-cli": "^4.2.0",
     "dotenv-cli": "^6.0.0"
   },
   "keywords": [],
