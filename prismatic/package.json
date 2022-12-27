@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "asdf": "tsc",
     "postinstall": "tsc && mkdir -p dist && cp src/index.d.ts dist/index.d.ts && npx prisma generate",
     "prisma:bootstrap": "prisma generate && prisma migrate dev --name init",
     "prisma:generate": "prisma generate",
