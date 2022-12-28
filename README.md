@@ -4,7 +4,7 @@
 - [ ] cleanup
   - [ ] dotenv files
   - [ ] dist folders
-  - [ ] copy .env.example files
+  - [x] copy .env.example files
 - [ ] GitHub Action
 - [ ] Fly.io
 - [ ] Tabloid
