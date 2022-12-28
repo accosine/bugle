@@ -14,6 +14,8 @@ jobs:
   lint:
     name: ⬣ ESLint
     runs-on: ubuntu-latest
+    matrix:
+      package: ["letterpress", "newsroom", "newspaper"]
     steps:
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.11.0
@@ -28,11 +30,9 @@ jobs:
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
 
       - name: 🔬 Lint
-        run: npm run lint
+        run: npm run lint:${{ matrix.package }}
 
   typecheck:
     name: ʦ TypeScript

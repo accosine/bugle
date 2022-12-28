@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint:letterpress": "npm run lint --workspace=letterpress",
+    "lint:newspaper": "npm run lint --workspace=newspaper",
+    "lint:newsroom": "npm run lint --workspace=newsroom",
     "build:letterpress": "npm run build --workspace=letterpress",
     "build:newspaper": "npm run build --workspace=newspaper",
     "build:newsroom": "npm run build --workspace=newsroom",
