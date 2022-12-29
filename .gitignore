@@ -7,7 +7,7 @@ build
 cypress/screenshots
 cypress/videos
 dist
-inventory
+# inventory
 node_modules
 playwright-report/
 **/playwright/.cache/

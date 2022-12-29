@@ -94,9 +94,6 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
-      - name: 🏄 Copy test env vars
-        run: npm run setup:env
-
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
@@ -104,6 +101,9 @@ jobs:
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
+
+      - name: 🏄 Copy test env vars
+        run: npm run setup:env
 
       - name: 🐳 Docker compose
         # the sleep is just there to give time for postgres to get started
