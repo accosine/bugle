@@ -107,16 +107,17 @@ jobs:
 
       - name: 🐳 Docker compose
         # the sleep is just there to give time for postgres to get started
-        run: docker-compose up -d && sleep 3
+        # run: docker-compose up -d && sleep 3
+        run: docker-compose up postgres -d && sleep 3
         env:
           DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
 
-      # - name: 🛠 Setup Database
-      #   # run: npx prisma migrate reset --force
-      #   run: npm run prismatic:reset
+      - name: 🛠 Setup Database
+        # run: npx prisma migrate reset --force
+        run: npm run prismatic:reset
 
-      # - name: ⚙️ Build
-      #   run: npm run build:newsroom"
+      - name: ⚙️ Build
+        run: npm run build:newsroom"
 
       - name: 🌳 Cypress run
         uses: cypress-io/github-action@v5
@@ -125,6 +126,7 @@ jobs:
           wait-on: "http://localhost:8811"
         env:
           PORT: "8811"
+        working-directory: packages/newsroom
 
   build:
     needs: [lint, typecheck, test, cypress]
