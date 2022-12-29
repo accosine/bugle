@@ -6,7 +6,7 @@ import type { PageData } from "prismatic";
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { marked } from "marked";
-import { db } from "~/db.server";
+import { prisma as db } from "~/db.server";
 import config from "~/config.server";
 import { utf8_to_b64 } from "~/auxiliary";
 

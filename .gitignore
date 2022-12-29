@@ -14,3 +14,4 @@ playwright-report/
 postgres-data
 public/build
 test-results/
+coverage/

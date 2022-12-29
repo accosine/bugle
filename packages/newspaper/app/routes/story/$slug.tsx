@@ -11,7 +11,7 @@ import type {
 } from "prismatic";
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
-import { db } from "~/db.server";
+import { prisma as db } from "~/db.server";
 import AmpStory from "~/components/Amp/AmpStory";
 import config from "~/config.server";
 import { utf8_to_b64 } from "~/auxiliary";

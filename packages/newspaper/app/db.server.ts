@@ -1,7 +1,7 @@
 import { PrismaClient } from "prismatic";
 import invariant from "tiny-invariant";
 
-let db: PrismaClient;
+let prisma: PrismaClient;
 
 declare global {
   var __db__: PrismaClient;
@@ -12,12 +12,12 @@ declare global {
 // create a new connection to the DB with every change either.
 // in production we'll have a single connection to the DB.
 if (process.env.NODE_ENV === "production") {
-  db = getClient();
+  prisma = getClient();
 } else {
   if (!global.__db__) {
     global.__db__ = getClient();
   }
-  db = global.__db__;
+  prisma = global.__db__;
 }
 
 function getClient() {
@@ -60,4 +60,4 @@ function getClient() {
   return client;
 }
 
-export { db };
+export { prisma };

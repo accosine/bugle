@@ -5,7 +5,7 @@ import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { useEffect } from "react";
 import config from "~/config.server";
-import { db } from "~/db.server";
+import { prisma as db } from "~/db.server";
 
 type LoaderStoryDataType = {
   ampStories: AmpStoryData[] | null;
