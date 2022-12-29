@@ -119,7 +119,7 @@ jobs:
         run: npm run prismatic:reset
 
       - name: ⚙️ Build
-        run: npm run build:newsroom"
+        run: npm run build:newsroom
 
       - name: 🌳 Cypress run
         uses: cypress-io/github-action@v5
