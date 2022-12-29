@@ -124,9 +124,9 @@ jobs:
         with:
           start: npm run start:mocks
           wait-on: "http://localhost:8811"
+          working-directory: packages/newsroom
         env:
           PORT: "8811"
-        working-directory: packages/newsroom
 
   build:
     needs: [lint, typecheck, test, cypress]
