@@ -84,51 +84,51 @@ jobs:
         # TODO: run: npm run test -- --coverage
         run: npm run test:${{ matrix.package }}
 
-  cypress:
-    name: ⚫️ Cypress
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+  # cypress:
+  #   name: ⚫️ Cypress
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: 🛑 Cancel Previous Runs
+  #       uses: styfle/cancel-workflow-action@0.11.0
 
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+  #     - name: ⬇️ Checkout repo
+  #       uses: actions/checkout@v3
 
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
+  #     - name: ⎔ Setup node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
+  #     - name: 📥 Download deps
+  #       uses: bahmutov/npm-install@v1
+  #       with:
+  #         useLockFile: false
 
-      - name: 🏄 Copy test env vars
-        run: npm run setup:env
+  #     - name: 🏄 Copy test env vars
+  #       run: npm run setup:env
 
-      - name: 🐳 Docker compose
-        # the sleep is just there to give time for postgres to get started
-        # run: docker-compose up -d && sleep 3
-        run: docker-compose up -d postgres && sleep 3
-        env:
-          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
+  #     - name: 🐳 Docker compose
+  #       # the sleep is just there to give time for postgres to get started
+  #       # run: docker-compose up -d && sleep 3
+  #       run: docker-compose up -d postgres && sleep 3
+  #       env:
+  #         DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
 
-      - name: 🛠 Setup Database
-        # run: npx prisma migrate reset --force
-        run: npm run prismatic:reset
+  #     - name: 🛠 Setup Database
+  #       # run: npx prisma migrate reset --force
+  #       run: npm run prismatic:reset
 
-      - name: ⚙️ Build
-        run: npm run build:newsroom
+  #     - name: ⚙️ Build
+  #       run: npm run build:newsroom
 
-      - name: 🌳 Cypress run
-        uses: cypress-io/github-action@v5
-        with:
-          start: npm run start:mocks
-          wait-on: "http://localhost:8811"
-          working-directory: packages/newsroom
-        env:
-          PORT: "8811"
+  #     - name: 🌳 Cypress run
+  #       uses: cypress-io/github-action@v5
+  #       with:
+  #         start: npm run start:mocks
+  #         wait-on: "http://localhost:8811"
+  #         working-directory: packages/newsroom
+  #       env:
+  #         PORT: "8811"
 
   build:
     needs: [lint, typecheck, test, cypress]

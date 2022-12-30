@@ -4,8 +4,6 @@
 .parcel-cache
 **/app/styles/tailwind.css
 build
-**/cypress/screenshots
-**/cypress/videos
 dist
 # inventory
 node_modules
