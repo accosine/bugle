@@ -263,7 +263,7 @@ jobs:
     #     working-directory: packages/letterpress
     runs-on: ubuntu-20.04
     container:
-      image: mcr.microsoft.com/playwright:v1.29.0-focal
+      image: mcr.microsoft.com/playwright:v1.29.1-focal
     strategy:
       fail-fast: false
       matrix:
