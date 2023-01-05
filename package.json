@@ -14,6 +14,7 @@
     "test:newspaper": "npm run test --if-present --workspace=newspaper",
     "test:newsroom": "npm run test --if-present --workspace=newsroom",
     "test:prismatic": "npm run test --if-present --workspace=prismatic",
+    "test:e2e:newsroom": "npm run test:e2e --if-present --workspace=newsroom",
     "lint": "npm run lint:letterpress && npm run lint:newspaper && npm run lint:newsroom && npm run lint:prismatic",
     "lint:letterpress": "npm run lint --if-present --workspace=letterpress",
     "lint:newspaper": "npm run lint --if-present --workspace=newspaper",

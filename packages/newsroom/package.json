@@ -19,7 +19,7 @@
     "prestart:e2e": "npm run build",
     "start:e2e": "npm run start",
     "test": "vitest",
-    "pretest:e2e:run": "npm run build",
+    "test:e2e": "npx playwright test",
     "typecheck": "tsc -b"
   },
   "prettier": {},
