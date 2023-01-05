@@ -195,6 +195,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
+          file: ./packages/newsroom/Dockerfile
           push: true
           tags: registry.fly.io/${{ steps.app_name.outputs.value }}:${{ github.ref_name }}-${{ github.sha }}
           build-args: |
