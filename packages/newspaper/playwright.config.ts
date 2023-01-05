@@ -39,7 +39,7 @@ const config: PlaywrightTestConfig = {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
 
-    baseURL: "http://localhost:3000",
+    baseURL: "http://localhost:3001",
   },
   webServer: {
     command: "npm run start:e2e",

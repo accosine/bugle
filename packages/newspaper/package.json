@@ -13,6 +13,9 @@
     "format": "prettier --write .",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "cross-env NODE_ENV=production node ./build/server.js",
+    "prestart:e2e": "npm run build",
+    "start:e2e": "npm run start",
+    "test:e2e": "npx playwright test",
     "typecheck": "tsc -b",
     "test": "echo \"Warning: no newsroom tests specified\" && exit 0"
   },
