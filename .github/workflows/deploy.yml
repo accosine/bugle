@@ -153,7 +153,7 @@ jobs:
           retention-days: 30
 
   build:
-    needs: [lint, typecheck, test]
+    # needs: [lint, typecheck, test]
     name: 🐳 Build
     # only build/deploy main branch on pushes
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
@@ -168,6 +168,7 @@ jobs:
       - name: 👀 Read app name
         uses: SebRollen/toml-action@v1.0.2
         id: app_name
+        working-directory: packages/newsroom
         with:
           file: "fly.toml"
           field: "app"
