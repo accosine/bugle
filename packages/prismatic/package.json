@@ -13,6 +13,7 @@
     "prisma:seed": "prisma db seed",
     "prisma:setup": "npx prisma generate && npx prisma migrate deploy",
     "prisma:studio": "prisma studio",
+    "prisma:deploy": "npx prisma migrate deploy",
     "test": "echo \"Warning: no prismatic tests specified\" && exit 0"
   },
   "author": "",
