@@ -45,9 +45,11 @@
       "./packages/*"
     ]
   },
-  "devDependencies": {
-    "cpy-cli": "^4.2.0",
+  "dependencies": {
     "dotenv-cli": "^6.0.0"
+  },
+  "devDependencies": {
+    "cpy-cli": "^4.2.0"
   },
   "keywords": [],
   "author": "",
