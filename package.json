@@ -30,7 +30,7 @@
     "prismatic:reset": "dotenv -- npm run prisma:reset --workspace=prismatic",
     "prismatic:seed": "dotenv -- npm run prisma:seed --workspace=prismatic",
     "prismatic:studio": "dotenv -- npm run prisma:studio --workspace=prismatic",
-    "prismatic:deploy": "dotenv -- npm run prisma:migrate --workspace=prismatic",
+    "prismatic:deploy": "dotenv -- npm run prisma:deploy --workspace=prismatic",
     "setup:env": "npm run setup:env:bootstrap && npm run setup:env:newspaper && npm run setup:env:newsroom && npm run setup:env:prismatic",
     "setup:env:bootstrap": "npx cpy-cli .env.example './' --cwd=packages/bootstrap --rename=.env",
     "setup:env:newspaper": "npx cpy-cli .env.example './' --cwd=packages/newspaper --rename=.env",
