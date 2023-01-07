@@ -41,6 +41,7 @@ ADD ./packages/newsroom ./packages/newsroom
 ADD ./packages/prismatic ./packages/prismatic
 ADD package.json ./
 RUN npm run build:newsroom
+RUN npm run prismatic:build
 
 # Finally, build the production image with minimal footprint
 FROM base
@@ -53,6 +54,7 @@ COPY --from=build /myapp/node_modules/.prisma /myapp/node_modules/.prisma
 ADD ./package.json ./
 ADD ./packages/newsroom ./packages/newsroom
 ADD ./packages/prismatic ./packages/prismatic
+COPY --from=build /myapp/packages/prismatic/dist /myapp/packages/prismatic/dist
 COPY --from=build /myapp/packages/newsroom/build /myapp/packages/newsroom/build
 COPY --from=build /myapp/packages/newsroom/public /myapp/packages/newsroom/public
 
