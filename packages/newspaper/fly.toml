@@ -8,7 +8,7 @@ PORT = "8080"
 METRICS_PORT = "8081"
 
 [metrics]
-port = 8081
+port = 8_081
 path = "/metrics"
 
 [deploy]
@@ -19,7 +19,7 @@ allowed_public_ports = [ ]
 auto_rollback = true
 
 [[services]]
-internal_port = 8080
+internal_port = 8_080
 processes = [ "app" ]
 protocol = "tcp"
 script_checks = [ ]
