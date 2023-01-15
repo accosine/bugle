@@ -60,6 +60,7 @@ ADD ./packages/letterpress ./packages/letterpress
 ADD ./packages/newspaper ./packages/newspaper
 ADD ./packages/prismatic ./packages/prismatic
 COPY --from=build /myapp/packages/letterpress/dist /myapp/packages/letterpress/dist
+COPY --from=build /myapp/packages/prismatic/dist /myapp/packages/prismatic/dist
 COPY --from=build /myapp/packages/newspaper/build /myapp/packages/newspaper/build
 COPY --from=build /myapp/packages/newspaper/public /myapp/packages/newspaper/public
 
