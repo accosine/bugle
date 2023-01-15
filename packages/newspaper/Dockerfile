@@ -43,8 +43,9 @@ ADD ./packages/letterpress ./packages/letterpress
 ADD ./packages/newspaper ./packages/newspaper
 ADD ./packages/prismatic ./packages/prismatic
 ADD package.json ./
-RUN npm run build:newspaper
 RUN npm run build:letterpress
+RUN npm run build:prismatic
+RUN npm run build:newspaper
 
 # Finally, build the production image with minimal footprint
 FROM base
