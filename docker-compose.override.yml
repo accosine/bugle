@@ -50,7 +50,7 @@ services:
     env_file:
       - ./packages/bootstrap/.env
     environment:
-      - S3_INVENTORY_FOLDER=/inventory
+      - INVENTORY_FOLDER=/inventory
     volumes:
       - ./inventory:/inventory
 
