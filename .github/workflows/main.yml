@@ -148,7 +148,7 @@ jobs:
           retention-days: 30
 
   newsroom-build:
-    needs: [lint, typecheck, test, newsroom-playwright]
+    needs: [lint, typecheck, test, newsroom-playwright, letterpress-playwright]
     name: 🐳 Build newsroom
     # only build/deploy main branch on pushes
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
@@ -247,7 +247,7 @@ jobs:
           FLY_PROJECT_PATH: packages/newsroom
 
   newspaper-build:
-    needs: [lint, typecheck, test, newspaper-playwright]
+    needs: [lint, typecheck, test, newspaper-playwright, letterpress-playwright]
     name: 🐳 Build newspaper
     # only build/deploy main branch on pushes
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
