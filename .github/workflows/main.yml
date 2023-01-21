@@ -169,6 +169,9 @@ jobs:
 
       - name: 🐳 Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+        # TODO: Remove v0.9.1 after this gets resolved: https://community.fly.io/t/deploying-to-fly-via-github-action-failing/10171/19?u=jsierles
+        with:
+          version: v0.9.1
 
       # Setup cache
       - name: ⚡️ Cache Docker layers
@@ -269,6 +272,9 @@ jobs:
 
       - name: 🐳 Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+        # TODO: Remove v0.9.1 after this gets resolved: https://community.fly.io/t/deploying-to-fly-via-github-action-failing/10171/19?u=jsierles
+        with:
+          version: v0.9.1
 
       # Setup cache
       - name: ⚡️ Cache Docker layers
