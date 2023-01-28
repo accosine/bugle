@@ -90,25 +90,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+
       - name: Install dependencies
         run: npm ci
+
       - name: 🏄 Copy test env vars
         run: npm run setup:env
+
       - name: 🐳 Docker compose
         # the sleep is just there to give time for postgres to get started
         # run: docker-compose up -d && sleep 3
         run: docker-compose up -d postgres && sleep 3
         env:
           DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
+
       - name: 🛠 Setup Database
         run: npm run prismatic:reset
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
       - name: Run Playwright tests
         run: npm run test:e2e:newsroom
+
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -122,24 +130,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+
       - name: Install dependencies
         run: npm ci
+
       - name: 🏄 Copy test env vars
         run: npm run setup:env
+
       - name: 🐳 Docker compose
         # the sleep is just there to give time for postgres to get started
         run: docker-compose up -d postgres && sleep 3
         env:
           DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
+
       - name: 🛠 Setup Database
         run: npm run prismatic:reset
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
       - name: Run Playwright tests
         run: npm run test:e2e:newspaper
+
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -384,9 +400,6 @@ jobs:
   letterpress-playwright:
     name: 🧪 Test ✉️🗜 with 🎭
     needs: letterpress-build
-    # defaults:
-    #   run:
-    #     working-directory: packages/letterpress
     runs-on: ubuntu-20.04
     container:
       image: mcr.microsoft.com/playwright:v1.29.1-focal
@@ -416,16 +429,11 @@ jobs:
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
         with:
-          useLockFile: true
           install-command: npm i --ignore-scripts
 
       - name: 📲 Install esbuild (binary workaround)
         working-directory: ./packages/letterpress
         run: npm i -D esbuild-linux-64
-
-      - name: 🎭 Install Playwright
-        working-directory: ./packages/letterpress
-        run: npx playwright install --with-deps
 
       - name: 👩‍🔬 Test with Playwright 🎭
         working-directory: ./packages/letterpress
