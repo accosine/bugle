@@ -5,6 +5,7 @@ export const utf8_to_b64 = (str: string): string => {
 export const chunkArray = <T,>(arr: T[], size: number): T[][] =>
   arr.reduce(
     (acc, e, i) => (
+      // eslint-disable-next-line no-sequences
       i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc
     ),
     [] as T[][]
