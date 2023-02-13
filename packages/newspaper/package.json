@@ -71,7 +71,7 @@
     "cookie": "^0.5.0",
     "dotenv": "^16.0.3",
     "esbuild": "^0.17.7",
-    "eslint": "^8.33.0",
+    "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "happy-dom": "^8.2.6",
     "msw": "^1.0.1",
