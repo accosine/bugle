@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.1314.0",
+    "aws-sdk": "^2.1315.0",
     "dotenv": "^16.0.2",
     "mime-types": "^2.1.35"
   }
