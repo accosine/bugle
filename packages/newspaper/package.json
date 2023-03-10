@@ -27,8 +27,8 @@
     "/postgres-data"
   ],
   "dependencies": {
-    "@remix-run/express": "^1.14.0",
-    "@remix-run/node": "^1.14.0",
+    "@remix-run/express": "^1.14.1",
+    "@remix-run/node": "^1.14.1",
     "@remix-run/react": "^1.14.1",
     "@remix-run/server-runtime": "^1.14.1",
     "bcryptjs": "^2.4.3",
