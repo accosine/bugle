@@ -58,7 +58,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/bcryptjs": "^2.4.2",
     "@types/compression": "^1.7.2",
-    "@types/eslint": "^8.21.2",
+    "@types/eslint": "^8.21.3",
     "@types/express": "^4.17.17",
     "@types/express-prometheus-middleware": "^1.2.1",
     "@types/morgan": "^1.9.4",
