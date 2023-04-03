@@ -30,7 +30,7 @@
     "/postgres-data"
   ],
   "dependencies": {
-    "@remix-run/express": "^1.14.3",
+    "@remix-run/express": "^1.15.0",
     "@remix-run/node": "^1.14.3",
     "@remix-run/react": "^1.14.3",
     "@remix-run/server-runtime": "^1.14.3",
