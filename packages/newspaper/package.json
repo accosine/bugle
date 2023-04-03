@@ -36,7 +36,7 @@
     "cross-env": "^7.0.3",
     "express": "^4.18.2",
     "express-prometheus-middleware": "^1.2.0",
-    "isbot": "^3.6.7",
+    "isbot": "^3.6.8",
     "marked": "^4.3.0",
     "morgan": "^1.10.0",
     "prismatic": "1.0.0",
