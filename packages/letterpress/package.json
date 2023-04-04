@@ -23,7 +23,7 @@
     "@playwright/experimental-ct-react": "1.32.0",
     "@types/react": "^18.0.32",
     "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.0",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.8.0",
