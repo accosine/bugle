@@ -47,7 +47,7 @@
     ]
   },
   "dependencies": {
-    "dotenv-cli": "^7.0.0"
+    "dotenv-cli": "^7.2.1"
   },
   "devDependencies": {
     "cpy-cli": "^4.2.0"
