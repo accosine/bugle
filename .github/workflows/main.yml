@@ -402,7 +402,7 @@ jobs:
     needs: letterpress-build
     runs-on: ubuntu-20.04
     container:
-      image: mcr.microsoft.com/playwright:v1.32.2-focal
+      image: mcr.microsoft.com/playwright:v1.34.0-focal
     strategy:
       fail-fast: false
       matrix:
