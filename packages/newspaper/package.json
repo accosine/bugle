@@ -61,7 +61,7 @@
     "@types/express-prometheus-middleware": "^1.2.1",
     "@types/marked": "^4.3.0",
     "@types/morgan": "^1.9.4",
-    "@types/node": "^18.16.3",
+    "@types/node": "^20.2.3",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.1",
     "@vitejs/plugin-react": "^4.0.0",
