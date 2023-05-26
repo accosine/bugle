@@ -32,7 +32,6 @@ export const loader: LoaderFunction = async ({ params }) => {
     gfm: true,
     breaks: false,
     sanitize: false,
-    smartLists: true,
     smartypants: false,
     xhtml: false,
   });
