@@ -5,6 +5,9 @@ on:
       - main
       - dev
   pull_request: {}
+  merge_group:
+    branches:
+      - main
 
 permissions:
   actions: write
