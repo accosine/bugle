@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "postinstall": "npm run prisma:build",
+    "postprepare": "npm run prisma:build",
     "prisma:build": "tsc && mkdir -p dist && cp src/index.d.ts dist/index.d.ts && npx prisma generate",
     "prisma:bootstrap": "prisma generate && prisma migrate dev --name init",
     "prisma:generate": "prisma generate",
@@ -20,8 +20,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "4.15.0",
-    "prisma": "4.15.0"
+    "@prisma/client": "5.0.0",
+    "prisma": "5.0.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",

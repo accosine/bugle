@@ -10,5 +10,7 @@
 // return { ...ctx, prisma };
 // };
 // export default createContext;
+import { Prisma } from "@prisma/client";
 export { PrismaClient } from "@prisma/client";
-export { PrismaClientKnownRequestError } from "@prisma/client/runtime";
+export import PrismaClientKnownRequestError = Prisma.PrismaClientKnownRequestError;
+export { Prisma } from "@prisma/client";
