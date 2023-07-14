@@ -20,8 +20,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "4.15.0",
-    "prisma": "4.15.0"
+    "@prisma/client": "5.0.0",
+    "prisma": "5.0.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
