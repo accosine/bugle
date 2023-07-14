@@ -59,6 +59,9 @@ jobs:
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
 
+      - name: 🧱 Build prismatic package
+        run: npm run build:prismatic
+
       - name: 🔎 Type check
         run: npm run typecheck:${{ matrix.package }}
 
