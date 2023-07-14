@@ -27,7 +27,6 @@
     "build:prismatic": "npm run prisma:generate --workspace=prismatic",
     "inventorize": "npm start --workspace=bootstrap",
     "postinstall": "npm run build:prismatic && npm run build:letterpress",
-    "prismatic:build": "dotenv -- npm run prisma:build --workspace=prismatic",
     "prismatic:reset": "dotenv -- npm run prisma:reset --workspace=prismatic",
     "prismatic:seed": "dotenv -- npm run prisma:seed --workspace=prismatic",
     "prismatic:studio": "dotenv -- npm run prisma:studio --workspace=prismatic",
