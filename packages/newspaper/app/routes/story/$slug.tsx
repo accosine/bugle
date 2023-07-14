@@ -1,7 +1,6 @@
 import type { FC } from "react";
 import type { ConfigType } from "~/config.server";
-import type { MetaFunction } from "@remix-run/node";
-import type { LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import type { AmpConfig } from "~/components/Amp/types";
 import type {
   AmpStoryData,
