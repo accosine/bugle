@@ -20,8 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "5.0.0",
-    "prisma": "5.0.0"
+    "@prisma/client": "5.0.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -29,6 +28,7 @@
     "bcryptjs": "^2.4.3",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
+    "prisma": "5.0.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.4"
