@@ -1,6 +1,9 @@
 import type { ReactNode } from "react";
-import type { MetaFunction, LinksFunction } from "@remix-run/node";
-import type { ErrorBoundaryComponent } from "@remix-run/node";
+import type {
+  ErrorBoundaryComponent,
+  LinksFunction,
+  MetaFunction,
+} from "@remix-run/node";
 import type { NavigateFunction } from "react-router";
 import type { ConfigType } from "~/config.server";
 import { json } from "@remix-run/node";
@@ -147,7 +150,11 @@ export default function App() {
   return isAmpDoc ? <AmpDocument /> : <ReactDocument location={pathname} />;
 }
 
-export const ErrorBoundary: ErrorBoundaryComponent = ({ error }) => {
+export const ErrorBoundary: ErrorBoundaryComponent = ({
+  error,
+}: {
+  error: Error;
+}) => {
   console.error(error);
   //TODO: Revisit when this is fixed: github.com/remix-run/remix/issues/599
   return (
