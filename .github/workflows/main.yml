@@ -66,7 +66,7 @@ jobs:
         run: npm run build:prismatic
 
       - name: 🔎 Type check
-        run: npm run typecheck:npm run typecheck:$${{ matrix.package }}
+        run: npm run typecheck:${{ matrix.package }}
 
   test:
     name: ⚡ Test
