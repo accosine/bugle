@@ -56,14 +56,17 @@ jobs:
         with:
           node-version: 16
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+      # - name: 📥 Download deps
+      #   uses: bahmutov/npm-install@v1
+
+      - name: npm ci
+        run: npm ci
 
       - name: 🧱 Build prismatic package
         run: npm run build:prismatic
 
       - name: 🔎 Type check
-        run: npm run typecheck:${{ matrix.package }}
+        run: npm run typecheck:npm run typecheck:$${{ matrix.package }}
 
   test:
     name: ⚡ Test
