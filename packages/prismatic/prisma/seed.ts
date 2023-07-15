@@ -1,5 +1,5 @@
 import path from "path";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "../dist/index";
 import bcrypt from "bcryptjs";
 import fs from "node:fs";
 import matter from "gray-matter";
