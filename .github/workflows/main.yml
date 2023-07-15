@@ -21,8 +21,8 @@ jobs:
       matrix:
         package: ["letterpress", "newspaper", "newsroom", "prismatic"]
     steps:
-      # - name: 🛑 Cancel Previous Runs
-      #   uses: styfle/cancel-workflow-action@0.11.0
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
@@ -45,8 +45,8 @@ jobs:
       matrix:
         package: ["letterpress", "newspaper", "newsroom", "prismatic"]
     steps:
-      # - name: 🛑 Cancel Previous Runs
-      #   uses: styfle/cancel-workflow-action@0.11.0
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
@@ -69,8 +69,8 @@ jobs:
       matrix:
         package: ["letterpress", "newspaper", "newsroom", "prismatic"]
     steps:
-      # - name: 🛑 Cancel Previous Runs
-      #   uses: styfle/cancel-workflow-action@0.11.0
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
@@ -98,8 +98,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm ci
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
 
       - name: 🏄 Copy test env vars
         run: npm run setup:env
@@ -138,8 +138,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm ci
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
 
       - name: 🏄 Copy test env vars
         run: npm run setup:env
@@ -173,8 +173,8 @@ jobs:
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
-      # - name: 🛑 Cancel Previous Runs
-      #   uses: styfle/cancel-workflow-action@0.11.0
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
@@ -238,8 +238,8 @@ jobs:
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
 
     steps:
-      # - name: 🛑 Cancel Previous Runs
-      #   uses: styfle/cancel-workflow-action@0.11.0
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
@@ -276,8 +276,8 @@ jobs:
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
-      # - name: 🛑 Cancel Previous Runs
-      #   uses: styfle/cancel-workflow-action@0.11.0
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
@@ -341,8 +341,8 @@ jobs:
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
 
     steps:
-      # - name: 🛑 Cancel Previous Runs
-      #   uses: styfle/cancel-workflow-action@0.11.0
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
@@ -376,8 +376,8 @@ jobs:
     name: 🏗 Build ✉️🗜
     runs-on: ubuntu-20.04
     steps:
-      # - name: 🛑 Cancel Previous Runs
-      #   uses: styfle/cancel-workflow-action@0.11.0
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
@@ -412,8 +412,8 @@ jobs:
         project: [chromium, firefox, webkit]
 
     steps:
-      # - name: 🛑 Cancel Previous Runs
-      #   uses: styfle/cancel-workflow-action@0.11.0
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
