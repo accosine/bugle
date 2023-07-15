@@ -41,7 +41,7 @@ ADD ./packages/newsroom ./packages/newsroom
 ADD ./packages/prismatic ./packages/prismatic
 ADD package.json ./
 RUN npm run build:newsroom
-RUN npm run prismatic:build
+RUN npm run prismatic:generate
 
 # Finally, build the production image with minimal footprint
 FROM base
