@@ -44,7 +44,7 @@ ADD ./packages/newspaper ./packages/newspaper
 ADD ./packages/prismatic ./packages/prismatic
 ADD package.json ./
 RUN npm run build:letterpress
-RUN npm run prismatic:build
+RUN npm run prismatic:generate
 RUN npm run build:newspaper
 RUN ls -lash ./packages/prismatic
 
