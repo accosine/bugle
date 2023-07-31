@@ -68,7 +68,7 @@
     "@vitejs/plugin-react": "^4.0.3",
     "@vitest/coverage-c8": "^0.33.0",
     "autoprefixer": "^10.4.14",
-    "c8": "^7.14.0",
+    "c8": "^8.0.1",
     "cookie": "^0.5.0",
     "dotenv": "^16.1.4",
     "esbuild": "^0.18.12",
