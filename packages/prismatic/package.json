@@ -23,8 +23,8 @@
     "prisma": "5.0.0"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.2",
-    "@types/js-yaml": "^4.0.5",
+    "@types/bcryptjs": "^2.4.4",
+    "@types/js-yaml": "^4.0.6",
     "bcryptjs": "^2.4.3",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
